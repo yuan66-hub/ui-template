@@ -1,0 +1,20 @@
+{
+  "name": "@ui-template/docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI Template Documentation",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.44",
+    "@ui-template/components": "workspace:*",
+    "@ui-template/theme": "workspace:*",
+    "@ui-template/utils": "workspace:*"
+  }
+}

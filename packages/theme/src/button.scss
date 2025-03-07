@@ -1,0 +1,163 @@
+@use 'common/mixins' as *;
+
+@include b(button) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: .1s;
+  font-weight: 500;
+  user-select: none;
+  vertical-align: middle;
+  background-color: #409eff;
+  border: 1px solid #409eff;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+
+  // 尺寸
+  @include m(large) {
+    height: 40px;
+    padding: 12px 19px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+
+  @include m(default) {
+    height: 32px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  @include m(small) {
+    height: 24px;
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  // 类型
+  @include m(primary) {
+    background-color: #409eff;
+    border-color: #409eff;
+  }
+
+  @include m(success) {
+    background-color: #67c23a;
+    border-color: #67c23a;
+  }
+
+  @include m(warning) {
+    background-color: #e6a23c;
+    border-color: #e6a23c;
+  }
+
+  @include m(danger) {
+    background-color: #f56c6c;
+    border-color: #f56c6c;
+  }
+
+  @include m(info) {
+    background-color: #909399;
+    border-color: #909399;
+  }
+
+  // 状态
+  @include when(plain) {
+    background: transparent;
+    color: #409eff;
+  }
+
+  &--primary#{&}.is-plain {
+    color: #409eff;
+    background: #ecf5ff;
+    border-color: #b3d8ff;
+  }
+
+  &--success#{&}.is-plain {
+    color: #67c23a;
+    background: #f0f9eb;
+    border-color: #c2e7b0;
+  }
+
+  &--warning#{&}.is-plain {
+    color: #e6a23c;
+    background: #fdf6ec;
+    border-color: #f5dab1;
+  }
+
+  &--danger#{&}.is-plain {
+    color: #f56c6c;
+    background: #fef0f0;
+    border-color: #fbc4c4;
+  }
+
+  &--info#{&}.is-plain {
+    color: #909399;
+    background: #f4f4f5;
+    border-color: #d3d4d6;
+  }
+
+  @include when(round) {
+    border-radius: 20px;
+  }
+
+  @include when(circle) {
+    border-radius: 50%;
+    padding: 8px;
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus {
+      color: #c0c4cc;
+      cursor: not-allowed;
+      background-image: none;
+      background-color: #fff;
+      border-color: #ebeef5;
+    }
+  }
+
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+  }
+
+  // 子元素
+  @include e(loading-icon) {
+    margin-right: 5px;
+  }
+
+  @include e(icon) {
+    margin-right: 5px;
+  }
+
+  @include e(content) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// 加载动画
+.loading-icon {
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

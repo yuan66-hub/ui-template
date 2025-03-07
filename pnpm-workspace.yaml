@@ -1,0 +1,11 @@
+packages:
+  # 所有packages目录下的包
+  - 'packages/*'
+  # 内部工具包
+  - 'internal/*'
+  # 文档站点
+  - 'docs'
+  # 示例项目
+  - 'examples/*'
+  # 排除所有packages下的node_modules
+  - '!**/node_modules/**'

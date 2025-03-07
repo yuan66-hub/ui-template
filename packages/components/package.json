@@ -1,0 +1,14 @@
+{
+  "name": "@ui-template/components",
+  "version": "0.1.0",
+  "description": "企业级UI组件库核心组件",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
+}

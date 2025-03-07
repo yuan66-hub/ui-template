@@ -1,0 +1,65 @@
+{
+  "name": "ui-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "企业级UI组件库",
+  "scripts": {
+    "dev": "pnpm -C docs dev",
+    "build:theme": "pnpm run -C packages/theme build",
+    "build": "pnpm -r --filter=./packages/* build",
+    "clean": "pnpm -r --parallel clean",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"**/*.{vue,js,ts,jsx,tsx,json,md}\"",
+    "prepare": "husky install",
+    "stub": "pnpm run -r --parallel stub"
+  },
+  "keywords": [
+    "ui",
+    "component",
+    "typescript",
+    "vue"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "@pnpm/types": "^1000.2.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "chalk": "^5.4.1",
+    "consola": "^3.4.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.10.0",
+    "fs-extra": "^10.1.0",
+    "gulp": "4.0.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.7",
+    "sass": "^1.85.1",
+    "typescript": "^5.0.4",
+    "unbuild": "^2.0.0",
+    "unplugin-vue-macros": "^2.14.5",
+    "vue": "^3.2.47"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@types/gulp": "4.0.9",
+    "@types/vinyl": "^2.0.12"
+  }
+}
