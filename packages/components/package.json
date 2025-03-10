@@ -10,5 +10,9 @@
   "license": "MIT",
   "peerDependencies": {
     "vue": "^3.2.0"
-  }
+  },
+  "types": "index.d.ts",
+  "sideEffects": [
+    "*/style/*"
+  ]
 }

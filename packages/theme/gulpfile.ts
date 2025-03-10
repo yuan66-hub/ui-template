@@ -1,6 +1,7 @@
 import path from 'path'
 import { Transform } from 'stream'
 import chalk from 'chalk'
+// @ts-ignore
 import { type TaskFunction, dest, parallel, series, src } from 'gulp'
 import gulpSass from 'gulp-sass'
 import dartSass from 'sass'
@@ -10,9 +11,9 @@ import consola from 'consola'
 import postcss from 'postcss'
 import cssnano from 'cssnano'
 import type Vinly from 'vinyl'
+import { epOutput } from '@ui-template/build-utils'
 
 const distFolder = path.resolve(__dirname, 'dist')
-const epOutput = path.resolve(__dirname, '..', '..', 'dist')
 const distBundle = path.resolve(epOutput, 'theme')
 
 /**

@@ -2,7 +2,7 @@
  * @Author: 'yuanjianming' '1743394015@qq.com'
  * @Date: 2025-02-20 16:36:55
  * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-07 15:40:33
+ * @LastEditTime: 2025-03-10 16:44:45
  * @FilePath: \element-plus\internal\build\gulpfile.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -47,7 +47,7 @@ export const copyTypesDefinitions: TaskFunction = (done:any) => {
 export const copyFullStyle = async () => {
   await mkdir(path.resolve(epOutput, 'dist'), { recursive: true })
   await copyFile(
-    path.resolve(epOutput, 'theme-chalk/index.css'),
+    path.resolve(epOutput, 'theme/index.css'),
     path.resolve(epOutput, 'dist/index.css')
   )
 }
@@ -55,11 +55,11 @@ export const copyFullStyle = async () => {
 export default series(
   // 清理打包文件 rimraf dist
   withTaskName('clean', () => run('pnpm run clean')),
-  // 创建输出目录 element-plus
+  // 创建输出目录 ui-template
   withTaskName('createOutput', () => mkdir(epOutput, { recursive: true })),
 
   parallel(
-    // 构建模块 => gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts "generateTypesDefinitions"
+    // 构建模块 => gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts "buildModules"
     runTask('buildModules'),
     // 构建完整的包 =>  gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts "buildFullBundle"
     runTask('buildFullBundle'),
@@ -70,14 +70,14 @@ export default series(
     series(
       // 构建主题样式包括一些组件样式 => gulp --require @esbuild-kit/cjs-loader
       withTaskName('buildThemeChalk', () =>
-        run('pnpm run -C packages/theme-chalk build')
+        run('pnpm run -C packages/theme build')
       ),
       // 复制完整样式
       copyFullStyle
     )
   ),
 
-  parallel(copyTypesDefinitions, copyFiles)
+  parallel(copyTypesDefinitions,copyFiles)
 )
 // 导入所有的gulp任务
 export * from './src'

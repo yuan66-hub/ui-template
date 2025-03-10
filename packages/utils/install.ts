@@ -2,11 +2,11 @@
  * @Author: 'yuanjianming' '1743394015@qq.com'
  * @Date: 2025-03-06 15:22:28
  * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-06 17:26:46
+ * @LastEditTime: 2025-03-10 11:18:18
  * @FilePath: \ui-template\packages\utils\install.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import type { Plugin , App } from 'vue'
+import type { Plugin , App } from '@vue/runtime-core'
 
 export type SFCWithInstall<T> = T & Plugin
 

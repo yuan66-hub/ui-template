@@ -7,7 +7,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "start": "gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts"
+    "start": "gulp --require=@esbuild-kit/cjs-loader -f gulpfile.ts",
+    "stub": "unbuild --stub"
+
   },
   "peerDependencies": {
     "vue": "^3.2.25"

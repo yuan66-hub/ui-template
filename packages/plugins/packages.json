@@ -1,0 +1,7 @@
+{
+    "name": "@ui-template/plugins",
+    "version": "0.1.0",
+    "description": "企业级UI组件库构建工具",
+    "main": "index.ts",
+    "license": "MIT"
+}

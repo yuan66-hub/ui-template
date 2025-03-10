@@ -2,7 +2,7 @@
  * @Author: 'yuanjianming' '1743394015@qq.com'
  * @Date: 2025-03-03 12:19:58
  * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-07 11:34:09
+ * @LastEditTime: 2025-03-10 14:46:10
  * @FilePath: \ui-template\packages\components\button\src\Button.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -40,8 +40,9 @@
   </button>
 </template>
 
-<script lang="ts" setup name="UiButton" >
-import { defineProps,defineEmits } from "vue";  
+<script lang="ts" setup name="UiButton">
+// @ts-ignore
+import {  defineEmits, defineProps } from 'vue' 
 // 定义按钮属性
 import { buttonProps,buttonEmits } from './props'
 
@@ -52,6 +53,6 @@ const emits = defineEmits(buttonEmits)
  const handleClick = (event: MouseEvent) => {
       if (props.disabled || props.loading) return;
       emits('click', event);
-    };
+};
 </script>
 

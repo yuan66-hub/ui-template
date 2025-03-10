@@ -16,7 +16,7 @@
     "rootDir": ".",
     "paths": {
       "@ui-template/*": ["packages/*"],
-      "ui-template": ["packages/main"]
+      "ui-template": ["packages/ui-template"]
     },
     "preserveSymlinks": true
   }

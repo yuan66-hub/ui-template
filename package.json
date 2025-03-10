@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "pnpm -C docs dev",
     "build:theme": "pnpm run -C packages/theme build",
-    "build": "pnpm -r --filter=./packages/* build",
-    "clean": "pnpm -r --parallel clean",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"**/*.{vue,js,ts,jsx,tsx,json,md}\"",
     "prepare": "husky install",
-    "stub": "pnpm run -r --parallel stub"
+    "stub": "pnpm run -r --parallel stub",
+    "build": "pnpm run -C internal/build start",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "prebuild": "pnpm run stub"
   },
   "keywords": [
     "ui",
@@ -19,19 +21,33 @@
     "typescript",
     "vue"
   ],
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.4.1",
   "engines": {
     "node": ">=16.0.0"
   },
+  "dependencies":{
+    "@ui-template/components": "workspace:*",
+    "@ui-template/theme": "workspace:*",
+    "@ui-template/utils": "workspace:*"
+  },
   "devDependencies": {
     "@esbuild-kit/cjs-loader": "^2.2.1",
     "@pnpm/types": "^1000.2.1",
     "@types/fs-extra": "^11.0.4",
+    "@types/gulp": "4.0.9",
     "@types/node": "^18.15.11",
+    "@types/vinyl": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
+    "@ui-template/build": "workspace:*",
+    "@ui-template/build-constants": "workspace:*",
+    "@ui-template/build-utils": "workspace:*",
+    "@vue/runtime-core": "^3.5.13",
     "chalk": "^5.4.1",
     "consola": "^3.4.0",
     "eslint": "^8.38.0",
@@ -43,6 +59,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
+    "rimraf": "^6.0.1",
     "sass": "^1.85.1",
     "typescript": "^5.0.4",
     "unbuild": "^2.0.0",
@@ -57,9 +74,5 @@
     "*.{json,md}": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "@types/gulp": "4.0.9",
-    "@types/vinyl": "^2.0.12"
   }
 }

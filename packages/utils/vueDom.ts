@@ -1,7 +1,9 @@
 /**
  * Vue相关工具函数
  */
-import { ref, watch, onMounted, onUnmounted, Ref } from 'vue';
+// @ts-ignore
+import { onUnmounted,ref, watch, onMounted  } from 'vue';
+import type { Ref } from '@vue/runtime-core';
 import { on, off } from './dom';
 
 /**
@@ -131,7 +133,7 @@ export function useLocalStorage<T>(key: string, initialValue: T): readonly [Ref<
     }
   };
 
-  watch(state, (newValue) => {
+  watch(state, (newValue: T) => {
     try {
       localStorage.setItem(key, JSON.stringify(newValue));
     } catch (error) {

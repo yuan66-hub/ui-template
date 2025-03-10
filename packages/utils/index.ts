@@ -13,6 +13,6 @@ export * from './dom';
 export * from './common';
 
 // Vue相关工具函数
-export * from './vue';
+export * from './vueDom';
 
 export * from './install'

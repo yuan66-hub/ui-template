@@ -4,7 +4,7 @@ import { rollup } from 'rollup'
 import replace from '@rollup/plugin-replace'
 import commonjs from '@rollup/plugin-commonjs'
 import vue from '@vitejs/plugin-vue'
-import VueMacros from 'unplugin-vue-macros/rollup'
+// import VueMacros from 'unplugin-vue-macros/rollup'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 // @ts-ignore
@@ -34,22 +34,16 @@ const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`
 async function buildFullEntry(minify: boolean) {
   const plugins: Plugin[] = [
     ElementPlusAlias(),
-    VueMacros({
-      setupComponent: false,
-      setupSFC: false,
-      plugins: {
-        vue: vue({
-          isProduction: true,
-          template: {
-            compilerOptions: {
-              hoistStatic: false,
-              cacheHandlers: false,
-            },
-          },
-        }),
-        vueJsx: vueJsx(),
+    vue({
+      isProduction: true,
+      template: {
+        compilerOptions: {
+          hoistStatic: false,
+          cacheHandlers: false,
+        },
       },
     }),
+    vueJsx(),
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.ts'],
     }),
@@ -68,6 +62,7 @@ async function buildFullEntry(minify: boolean) {
       legalComments: 'eof',
     }),
     replace({
+       preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   ]

@@ -1,6 +1,10 @@
 {
   "name": "@ui-template/utils",
   "version": "0.1.0",
+  "private": true,
   "description": "企业级UI组件库工具函数",
-  "main": "index.ts"
+  "main": "index.ts",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
 }
