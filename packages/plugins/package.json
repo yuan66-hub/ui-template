@@ -1,0 +1,18 @@
+{
+    "name": "@ui-template/plugins",
+    "version": "0.1.0",
+    "description": "企业级UI组件库构建工具",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "stub": "unbuild --stub"
+    },
+    "devDependencies": {
+        "unbuild": "^2.0.0"
+    },
+    "dependencies": {
+        "unplugin-vue-components": "^28.4.1"
+    }
+}

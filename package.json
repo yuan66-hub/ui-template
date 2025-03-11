@@ -30,7 +30,7 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "dependencies":{
+  "dependencies": {
     "@ui-template/components": "workspace:*",
     "@ui-template/theme": "workspace:*",
     "@ui-template/utils": "workspace:*"

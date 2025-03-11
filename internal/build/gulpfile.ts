@@ -2,7 +2,7 @@
  * @Author: 'yuanjianming' '1743394015@qq.com'
  * @Date: 2025-02-20 16:36:55
  * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-10 16:44:45
+ * @LastEditTime: 2025-03-10 18:47:59
  * @FilePath: \element-plus\internal\build\gulpfile.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -66,7 +66,7 @@ export default series(
     // 生成类型定义文件 => gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts "generateTypesDefinitions"
     runTask('generateTypesDefinitions'),
     // 构建辅助工具 => `gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts "buildHelper"`
-    runTask('buildHelper'),
+    // runTask('buildHelper'),
     series(
       // 构建主题样式包括一些组件样式 => gulp --require @esbuild-kit/cjs-loader
       withTaskName('buildThemeChalk', () =>
