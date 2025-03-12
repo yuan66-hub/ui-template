@@ -2,14 +2,11 @@
  * @Author: 'yuanjianming' '1743394015@qq.com'
  * @Date: 2025-03-10 18:35:19
  * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-11 18:41:26
+ * @LastEditTime: 2025-03-12 12:09:03
  * @FilePath: \ui-template\packages\plugins\UiTemplateResolver\index.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-// 修改导入语句
-import type {  ComponentResolver } from 'unplugin-vue-components'
-// 而不是
-// import type { ComponentInfo, ComponentResolver } from 'unplugin-vue-components/types'
+import type { ComponentResolver } from 'unplugin-vue-components/types'
 
 export interface UiTemplateResolverOptions {
     exclude?: Array<string | RegExp>;
@@ -27,16 +24,15 @@ export interface UiTemplateResolverOptions {
 }
 
 export function UiTemplateResolver(options: UiTemplateResolverOptions = {}): ComponentResolver {
-
+    const {
+        exclude = [],
+        importStyle = 'css',
+        noStylesComponents = []
+    } = options
 
     return {
         type: 'component',
         resolve: (name: string) => {
-            const {
-                exclude = [],
-                importStyle = 'css',
-                noStylesComponents = []
-            } = options
             if (exclude.some(item => {
                 if (item instanceof RegExp)
                     return item.test(name)
@@ -55,13 +51,14 @@ export function UiTemplateResolver(options: UiTemplateResolverOptions = {}): Com
                 name,
                 from: `@ui-template/components/${componentName}`
             }
+
             if (importStyle && !noStylesComponents.includes(name)) {
                 if (importStyle === 'sass') {
                     //sass
-                    (resolveResult as { name: string; from: string; sideEffects:string }).sideEffects = `ui-template/theme/src/${componentName}.scss`;
+                    (resolveResult as { name: string; from: string; sideEffects?: string[] }).sideEffects = [`ui-template/theme/src/${componentName}.scss`];
                 } else {
                     // css 
-                    (resolveResult as { name: string; from: string; sideEffects:string }).sideEffects = `ui-template/theme/ui-${componentName}.css`;
+                    (resolveResult as { name: string; from: string; sideEffects?: string[] }).sideEffects = [`ui-template/theme/ui-${componentName}.css`];
                 }
             }
 

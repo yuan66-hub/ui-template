@@ -2,6 +2,7 @@
   "extends": "./tsconfig.web.json",
   "compilerOptions": {
     "allowJs": true,
+    "esModuleInterop":true,
     "lib": [
       "ESNext",
       "DOM",
