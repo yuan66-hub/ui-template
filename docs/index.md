@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /components/getting-started
+      link: /guide/getting-started
     - theme: alt
       text: 组件
-      link: /components/introduction
+      link: /guide/introduction
 
 features:
   - icon: 🛠️

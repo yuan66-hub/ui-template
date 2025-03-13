@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "lib": ["WebWorker"],
     "paths": {
-      "element-plus": ["../packages/main"],
+      "ui-template": ["../packages/ui-template"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
     "jsx": "preserve"
