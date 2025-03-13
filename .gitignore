@@ -8,8 +8,6 @@ dist-ssr
 *.local
 
 # IDE and editor files
-.vscode/*
-!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*

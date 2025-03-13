@@ -4,6 +4,7 @@ packages:
   # 内部工具包
   - "internal/*"
   - "play"
+  - "plugins"
   # 文档站点
   - "docs"
   # 示例项目

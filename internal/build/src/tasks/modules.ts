@@ -4,6 +4,8 @@ import { series } from 'gulp'
 import { rollup } from 'rollup'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import rollupJson from '@rollup/plugin-json'
+
 // import VueMacros from 'unplugin-vue-macros/rollup'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
@@ -28,6 +30,7 @@ const plugins: Plugin[] = [
       },
     },
   }),
+  rollupJson(),
   vueJsx(),
   nodeResolve({
     extensions: ['.mjs', '.js', '.json', '.ts'],

@@ -1,3 +1,11 @@
+/*
+ * @Author: 'yuanjianming' '1743394015@qq.com'
+ * @Date: 2025-03-13 10:18:47
+ * @LastEditors: 'yuanjianming' '1743394015@qq.com'
+ * @LastEditTime: 2025-03-13 11:08:32
+ * @FilePath: \ui-template\internal\build\src\build-info.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import path from 'path'
 import { PKG_NAME } from '@ui-template/build-constants'
 import { epOutput } from '@ui-template/build-utils'
@@ -13,12 +21,12 @@ export interface BuildInfo {
   output: {
     /** e.g: `es` */
     name: string
-    /** e.g: `dist/element-plus/es` */
+    /** e.g: `dist/ui-template/es` */
     path: string
   }
 
   bundle: {
-    /** e.g: `element-plus/es` */
+    /** e.g: `ui-template/es` */
     path: string
   }
 }

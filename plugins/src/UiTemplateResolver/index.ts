@@ -2,7 +2,7 @@
  * @Author: 'yuanjianming' '1743394015@qq.com'
  * @Date: 2025-03-10 18:35:19
  * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-12 12:09:03
+ * @LastEditTime: 2025-03-13 11:28:40
  * @FilePath: \ui-template\packages\plugins\UiTemplateResolver\index.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -45,8 +45,10 @@ export function UiTemplateResolver(options: UiTemplateResolverOptions = {}): Com
                 return
 
             const partialName = name.slice(2)
-            const componentName = partialName.charAt(0).toLowerCase() + partialName.slice(1)
-
+            const componentName = partialName
+                .split(/(?=[A-Z])/)
+                .join('-')
+                .toLowerCase()
             const resolveResult = {
                 name,
                 from: `@ui-template/components/${componentName}`

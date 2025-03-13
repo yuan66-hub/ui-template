@@ -17,7 +17,7 @@ import {
   PKG_CAMELCASE_NAME,
 } from '@ui-template/build-constants'
 import { epOutput, epRoot } from '@ui-template/build-utils'
-
+import rollupJson from '@rollup/plugin-json'
 import { ElementPlusAlias } from '../plugins/element-plus-alias'
 import {
   formatBundleFilename,
@@ -47,6 +47,7 @@ async function buildFullEntry(minify: boolean) {
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.ts'],
     }),
+    rollupJson(),
     commonjs(),
     esbuild({
       exclude: [],
