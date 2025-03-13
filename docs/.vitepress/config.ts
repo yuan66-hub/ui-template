@@ -1,4 +1,6 @@
+
 export default {
+    base: '/ui-template/',
     themeConfig: {
       sidebar: [
         {
