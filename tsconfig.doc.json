@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+      "lib": ["WebWorker"],
+      "paths": {
+        "ui-template": ["../packages/ui-template"],
+        "~/*": ["./.vitepress/vitepress/*"]
+      },
+    },
+    "include": ["**/*", ".vitepress/**/*", "../typings/global.d.ts"],
+    "exclude": ["node_modules"]
+  }
+  
