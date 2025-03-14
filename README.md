@@ -1,12 +1,3 @@
-<!--
- * @Author: 'yuanjianming' '1743394015@qq.com'
- * @Date: 2025-03-13 17:55:58
- * @LastEditors: 'yuanjianming' '1743394015@qq.com'
- * @LastEditTime: 2025-03-14 10:15:05
- * @FilePath: \ui-template\README.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
-
 # UI Template
 
 [English](./README.en.md) | 简体中文
@@ -79,6 +70,11 @@ const handleClick = () => {
 ## 🤝 贡献
 
 欢迎提交 Issue 或 Pull Request！
+
+## 参考
+
+[element-plus](https://github.com/element-plus/element-plus)
+[semi-design](https://github.com/DouyinFE/semi-design)
 
 ## 📄 开源协议
 
